@@ -7,11 +7,14 @@ export const DesktopNavigation = () => {
 
 	return (
 		<Wrapper>
-			<GridCell column='13/14' onClick={() => navigate(Path.landingPage)}>
+			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
 				{'logotyp'}
 			</GridCell>
-			<GridCell column='15/16' onClick={() => navigate(Path.signInPage)}>
+			<GridCell column='14/15' onClick={() => navigate(Path.signInPage)}>
 				{'Logga in'}
+			</GridCell>
+			<GridCell column='15/16' onClick={() => navigate(Path.gettingStartedPage)}>
+				{'Kom igång'}
 			</GridCell>
 		</Wrapper>
 	)

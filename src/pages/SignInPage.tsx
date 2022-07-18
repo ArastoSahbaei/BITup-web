@@ -1,3 +1,3 @@
-export const SignInPage = () => {
+export const SignInPage: React.FC = () => {
 	return <div>SignInPage</div>
 }

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-import { LandingPage, SignInPage } from '../pages'
+import { GettingStartedPage, LandingPage, SignInPage } from '../pages'
 import Path from './Path'
 
 export const Routes = (props: { children: JSX.Element }) => {
@@ -9,6 +9,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 			<Switch>
 				<Route path={Path.landingPage} element={<LandingPage />} />
 				<Route path={Path.signInPage} element={<SignInPage />} />
+				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
 				<Route path='*' element={<LandingPage />} />
 			</Switch>
 		</BrowserRouter>
