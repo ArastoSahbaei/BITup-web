@@ -29,7 +29,7 @@ module.exports = {
 		'react/jsx-closing-bracket-location': [2, { selfClosing: 'after-props', nonEmpty: 'after-props' }],
 		'react/jsx-curly-spacing': [2, 'never', { allowMultiline: false }],
 		'react/jsx-max-props-per-line': [0, { maximum: 3 }],
-		'react/jsx-no-literals': 2,
+		'react/jsx-no-literals': 0,
 		'react/sort-prop-types': 2,
 		'react/self-closing-comp': 2,
 		'react/sort-comp': 2,
