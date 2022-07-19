@@ -15,6 +15,7 @@ export const useAuthentication = () => {
 			const { data } = await BitupService.login({ email: credential.email, password: credential.password })
 			setAuthenticatedUser(data)
 			navigate(Path.landingPage)
+			localStorage.setItem('token', data.token)
 			toast.success('Autentisering lyckades!')
 			console.log(data)
 		} catch (error: any) {
