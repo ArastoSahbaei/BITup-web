@@ -1,1 +1,1 @@
-export type { IauthenticatedUser } from './UserInterface'
+export type { IauthenticatedUser, IloginCredentials } from './UserInterface'
