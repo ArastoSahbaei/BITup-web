@@ -1,0 +1,1 @@
+export { ToastifyConfigurations } from './ToastifyConfigurations'

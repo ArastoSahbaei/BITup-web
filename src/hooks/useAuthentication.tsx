@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../shared/providers/UserProvider'
@@ -14,9 +15,11 @@ export const useAuthentication = () => {
 			const { data } = await BitupService.login({ email: credential.email, password: credential.password })
 			setAuthenticatedUser(data)
 			navigate(Path.landingPage)
+			toast.success('Autentisering lyckades!')
 			console.log(data)
-		} catch (error) {
+		} catch (error: any) {
 			console.log(error)
+			toast.error(error.response.data.message || 'Något gick fel!')
 		}
 	}
 
