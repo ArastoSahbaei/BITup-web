@@ -1,19 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { useAuthentication } from '../../../hooks'
 import Path from '../../../routes/Path'
+import { Profile } from './components/Profile'
 
 export const DesktopNavigation = () => {
 	const navigate = useNavigate()
+	const { authenticatedUser } = useAuthentication()
 
 	return (
 		<Wrapper>
 			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
 				{'logotyp'}
 			</GridCell>
-			<GridCell column='14/15' onClick={() => navigate(Path.signInPage)}>
-				{'Logga in'}
+			<GridCell column='14/16' onClick={() => navigate(Path.signInPage)}>
+				{authenticatedUser.email ? <Profile /> : 'Logga in'}
 			</GridCell>
-			<GridCell column='15/16' onClick={() => navigate(Path.gettingStartedPage)}>
+			<GridCell column='16/18' onClick={() => navigate(Path.gettingStartedPage)}>
 				{'Kom igång'}
 			</GridCell>
 		</Wrapper>
@@ -26,7 +29,7 @@ interface grid {
 
 const Wrapper = styled.div`
 	position: sticky;
-	padding: 0.5%;
+	padding: 1.2%;
 	display: grid;
 	grid-template-columns: repeat(20, 1fr);
 	align-items: center;

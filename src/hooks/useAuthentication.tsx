@@ -5,9 +5,10 @@ import { UserContext } from '../shared/providers/UserProvider'
 import { IloginCredentials } from '../shared/interfaces'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
+import { nonAuthenticatedUser } from '../shared/mock'
 
 export const useAuthentication = () => {
-	const { setAuthenticatedUser } = useContext(UserContext)
+	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
 	const navigate = useNavigate()
 
 	const login = async (credential: IloginCredentials) => {
@@ -24,7 +25,14 @@ export const useAuthentication = () => {
 		}
 	}
 
+	const logout = () => {
+		localStorage.removeItem('token')
+		setAuthenticatedUser(nonAuthenticatedUser)
+		navigate(Path.landingPage)
+	}
 	return {
+		authenticatedUser,
 		login,
+		logout,
 	}
 }
