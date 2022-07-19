@@ -1,32 +1,20 @@
 import { useState } from 'react'
-import BitupService from '../shared/api/services/BitupService'
-
-interface LoginCredentials {
-	email: string
-	password: string
-}
+import { useAuthentication } from '../hooks'
+import { IloginCredentials } from '../shared/interfaces'
 
 export const SignInPage: React.FC = () => {
-	const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({ email: '', password: '' })
+	const [loginCredentials, setLoginCredentials] = useState<IloginCredentials>({ email: '', password: '' })
+	const { login } = useAuthentication()
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>, target: keyof LoginCredentials) => {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>, target: keyof IloginCredentials) => {
 		setLoginCredentials({ ...loginCredentials, [target]: event.target.value })
-	}
-
-	const signIn = async () => {
-		try {
-			const { data } = await BitupService.login({ email: loginCredentials.email, password: loginCredentials.password })
-			console.log(data)
-		} catch (error) {
-			console.log(error)
-		}
 	}
 
 	return (
 		<div>
 			<input placeholder='email' onChange={(event) => handleChange(event, 'email')} />
 			<input placeholder='password' type='password' onChange={(event) => handleChange(event, 'password')} />
-			<button onClick={() => signIn()}>Logga in</button>
+			<button onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })}>Logga in</button>
 		</div>
 	)
 }
