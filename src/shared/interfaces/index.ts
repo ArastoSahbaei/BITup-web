@@ -1,0 +1,1 @@
+export type { IauthenticatedUser } from './UserInterface'

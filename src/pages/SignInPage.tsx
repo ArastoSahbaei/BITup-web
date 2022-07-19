@@ -24,7 +24,6 @@ export const SignInPage: React.FC = () => {
 
 	return (
 		<div>
-			<h1>test</h1>
 			<input placeholder='email' onChange={(event) => handleChange(event, 'email')} />
 			<input placeholder='password' type='password' onChange={(event) => handleChange(event, 'password')} />
 			<button onClick={() => signIn()}>Logga in</button>

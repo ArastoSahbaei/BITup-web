@@ -1,10 +1,15 @@
 import { Navigation } from './components'
 import { Routes } from './routes/Routes'
+import { UserProvider } from './shared/providers/UserProvider'
 
 export const App = () => {
 	return (
-		<Routes>
-			<Navigation />
-		</Routes>
+		<>
+			<UserProvider>
+				<Routes>
+					<Navigation />
+				</Routes>
+			</UserProvider>
+		</>
 	)
 }

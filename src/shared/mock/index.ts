@@ -1,0 +1,1 @@
+export { nonAuthenticatedUser } from './Mock'
