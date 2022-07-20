@@ -6,17 +6,10 @@ export const ProfileDropDown = () => {
 	return (
 		<DropDownWrapper>
 			<UList>
-				<Item 
-					navigateTo={Path.landingPage} 
-					image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} 
-					text='Profil' />
-				<Item
-					navigateTo={Path.landingPage}
-					image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'}
-					text='Betalningar'/>
-				<Item 
-					image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} 
-					text='Logga ut' />
+				<Item navigateTo={Path.auth.profilePage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Profil' />
+				<Item navigateTo={Path.auth.startPaymentPage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Betalningar' />
+				<Item navigateTo={Path.auth.historyPage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Historik' />
+				<Item image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Logga ut' />
 			</UList>
 		</DropDownWrapper>
 	)

@@ -30,9 +30,15 @@ export const useAuthentication = () => {
 		setAuthenticatedUser(nonAuthenticatedUser)
 		navigate(Path.landingPage)
 	}
+
+	const authenticationRequired = (AuthPage: JSX.Element, FallbackPage: JSX.Element) => {
+		return authenticatedUser.authenticated ? AuthPage : FallbackPage
+	}
+
 	return {
 		authenticatedUser,
 		login,
 		logout,
+		authenticationRequired,
 	}
 }

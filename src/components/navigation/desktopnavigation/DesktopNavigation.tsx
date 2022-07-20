@@ -8,14 +8,20 @@ export const DesktopNavigation = () => {
 	const navigate = useNavigate()
 	const { authenticatedUser } = useAuthentication()
 
+	const displayUserIfAuthenticated = () => {
+		return (
+			<GridCell column='14/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
+				{authenticatedUser.authenticated ? <Profile /> : 'Logga in'}
+			</GridCell>
+		)
+	}
+
 	return (
 		<Wrapper>
 			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
 				{'logotyp'}
 			</GridCell>
-			<GridCell column='14/16' onClick={() => navigate(Path.signInPage)}>
-				{authenticatedUser.email ? <Profile /> : 'Logga in'}
-			</GridCell>
+			{displayUserIfAuthenticated()}
 			<GridCell column='16/18' onClick={() => navigate(Path.gettingStartedPage)}>
 				{'Kom igång'}
 			</GridCell>

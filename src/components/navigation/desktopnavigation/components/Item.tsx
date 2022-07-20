@@ -1,11 +1,13 @@
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useAuthentication } from '../../../../hooks'
 
 export const Item = (props: { navigateTo?: string; image: any; text: string }) => {
+	const navigate = useNavigate()
 	const { logout } = useAuthentication()
 
 	const handleClick = () => {
-		props.navigateTo ? /* navigateAuth(props.navigateTo) */ console.log('ok') : logout()
+		props.navigateTo ? navigate(props.navigateTo) : logout()
 	}
 
 	return (

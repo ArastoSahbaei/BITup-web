@@ -1,9 +1,16 @@
 const landingPage = '/home'
-const signInPage = '/sign-in'
+const signInPage = '/logga-in'
 const gettingStartedPage = '/kom-i-kontakt'
+
+const auth = {
+	profilePage: '/profil',
+	historyPage: '/historik',
+	startPaymentPage: '/ny-betalning',
+}
 
 export default {
 	landingPage,
 	signInPage,
-	gettingStartedPage
+	gettingStartedPage,
+	auth
 }
