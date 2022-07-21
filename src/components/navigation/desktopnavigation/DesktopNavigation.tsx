@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import { useAuthentication } from '../../../hooks'
-import Path from '../../../routes/Path'
 import { Profile } from './components/Profile'
+import styled from 'styled-components'
+import Path from '../../../routes/Path'
 
 export const DesktopNavigation = () => {
 	const navigate = useNavigate()
@@ -10,22 +10,28 @@ export const DesktopNavigation = () => {
 
 	const displayUserIfAuthenticated = () => {
 		return (
-			<GridCell column='16/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
+			<GridCell column='14/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
 				{authenticatedUser.authenticated ? <Profile /> : 'Logga in'}
 			</GridCell>
 		)
 	}
 
 	const displayAdmin = () => {
-		return isUserAdmin() && <p>admin</p>
+		return (
+			isUserAdmin() && (
+				<GridCell column='10/10' onClick={() => navigate(Path.landingPage)}>
+					{'Admin'}
+				</GridCell>
+			)
+		)
 	}
 
 	return (
 		<Wrapper>
-			{displayAdmin()}
 			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
 				{'logotyp'}
 			</GridCell>
+			{displayAdmin()}
 			{displayUserIfAuthenticated()}
 			<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
 				{'Kom igång'}
