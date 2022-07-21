@@ -1,12 +1,12 @@
 import { toast } from 'react-toastify'
+import { userRoles } from '../shared/enums'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../shared/providers/UserProvider'
 import { IloginCredentials } from '../shared/interfaces'
+import { nonAuthenticatedUser } from '../shared/mock'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
-import { nonAuthenticatedUser } from '../shared/mock'
-import { userRoles } from '../shared/enums'
 
 export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
