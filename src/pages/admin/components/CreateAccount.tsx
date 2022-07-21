@@ -5,12 +5,12 @@ import { IcreateAccount, IpersonalDetails } from '../../../shared/interfaces'
 export const CreateAccount = () => {
 	const { createAccountAndSendInvite } = useAuthentication()
 	const [personalDetails, setPersonalDetails] = useState<IpersonalDetails>({
-		firstName: '',
-		lastName: '',
-		country: '',
-		address: '',
-		zipCode: '',
-		phone: '',
+		firstName: '123',
+		lastName: '123',
+		country: '123',
+		address: '123',
+		zipCode: '123',
+		phone: '123',
 	})
 	const [accountData, setAccountData] = useState<IcreateAccount>({
 		email: '',
