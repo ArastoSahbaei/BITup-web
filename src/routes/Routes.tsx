@@ -19,14 +19,12 @@ export const Routes = (props: { children: JSX.Element }) => {
 				<Route path={Path.landingPage} element={<LandingPage />} />
 				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
 				<Route path={Path.signInPage} element={<SignInPage />} />
+				{/* AUTHENTICATED ROUTES */}
 				<Route path={Path.auth.profilePage} element={authenticationRequired(<ProfilePage />, <LandingPage />)} />
 				<Route path={Path.auth.historyPage} element={authenticationRequired(<HistoryPage />, <LandingPage />)} />
 				<Route path={Path.auth.startPaymentPage} element={authenticationRequired(<StartPaymentPage />, <LandingPage />)} />
-				<Route path='*' element={<LandingPage />} />
-
-				{/* AUTHENTICATED ROUTES */}
-
 				{/* DEFAULT ROUTE */}
+				<Route path='*' element={<LandingPage />} />
 			</Switch>
 		</BrowserRouter>
 	)
