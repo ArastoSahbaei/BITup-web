@@ -4,5 +4,6 @@ export const nonAuthenticatedUser: IauthenticatedUser = {
 	_id: '',
 	email: '',
 	authenticated: false,
-	storeID: ''
+	storeID: '',
+	role: 'shopOwner',
 }

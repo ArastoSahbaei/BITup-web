@@ -3,6 +3,7 @@ export interface IauthenticatedUser {
   email: string
   authenticated: boolean
   storeID: string
+  role: string
 }
 
 export interface IloginCredentials {
