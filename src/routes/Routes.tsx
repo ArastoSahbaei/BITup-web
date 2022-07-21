@@ -4,8 +4,8 @@ import { HistoryPage, ProfilePage, StartPaymentPage } from '../pages/auth'
 import { AdminLandingPage } from '../pages/admin'
 import { UserContext } from '../shared/providers/UserProvider'
 import { useContext } from 'react'
-import Path from './Path'
 import { userRoles } from '../shared/enums'
+import Path from './Path'
 
 export const Routes = (props: { children: JSX.Element }) => {
 	const { authenticatedUser } = useContext(UserContext)
