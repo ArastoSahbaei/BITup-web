@@ -8,9 +8,14 @@ const auth = {
 	startPaymentPage: '/ny-betalning',
 }
 
+const admin = {
+	landingPage: '/admin',
+}
+
 export default {
 	landingPage,
 	signInPage,
 	gettingStartedPage,
-	auth
+	auth,
+	admin
 }

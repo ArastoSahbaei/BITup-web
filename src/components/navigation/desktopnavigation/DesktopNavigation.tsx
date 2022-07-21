@@ -19,7 +19,7 @@ export const DesktopNavigation = () => {
 	const displayAdmin = () => {
 		return (
 			isUserAdmin() && (
-				<GridCell column='10/10' onClick={() => navigate(Path.landingPage)}>
+				<GridCell column='10/10' onClick={() => navigate(Path.admin.landingPage)}>
 					{'Admin'}
 				</GridCell>
 			)

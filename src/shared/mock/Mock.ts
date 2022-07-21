@@ -1,3 +1,4 @@
+import { userRoles } from '../enums'
 import { IauthenticatedUser } from '../interfaces'
 
 export const nonAuthenticatedUser: IauthenticatedUser = {
@@ -5,5 +6,5 @@ export const nonAuthenticatedUser: IauthenticatedUser = {
 	email: '',
 	authenticated: false,
 	storeID: '',
-	role: 'shopOwner',
+	role: userRoles.shopOwner,
 }
