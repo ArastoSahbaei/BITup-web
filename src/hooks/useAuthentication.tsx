@@ -6,6 +6,7 @@ import { IloginCredentials } from '../shared/interfaces'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
 import { nonAuthenticatedUser } from '../shared/mock'
+import { userRoles } from '../shared/enums'
 
 export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
@@ -35,10 +36,15 @@ export const useAuthentication = () => {
 		return authenticatedUser.authenticated ? AuthPage : FallbackPage
 	}
 
+	const isUserAdmin = () => {
+		return authenticatedUser.role === userRoles.admin
+	}
+
 	return {
 		authenticatedUser,
 		login,
 		logout,
+		isUserAdmin,
 		authenticationRequired,
 	}
 }

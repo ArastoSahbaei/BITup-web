@@ -6,7 +6,7 @@ import { Profile } from './components/Profile'
 
 export const DesktopNavigation = () => {
 	const navigate = useNavigate()
-	const { authenticatedUser } = useAuthentication()
+	const { authenticatedUser, isUserAdmin } = useAuthentication()
 
 	const displayUserIfAuthenticated = () => {
 		return (
@@ -16,8 +16,13 @@ export const DesktopNavigation = () => {
 		)
 	}
 
+	const displayAdmin = () => {
+		return isUserAdmin() && <p>admin</p>
+	}
+
 	return (
 		<Wrapper>
+			{displayAdmin()}
 			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
 				{'logotyp'}
 			</GridCell>
