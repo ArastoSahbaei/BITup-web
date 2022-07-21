@@ -10,7 +10,7 @@ export const DesktopNavigation = () => {
 
 	const displayUserIfAuthenticated = () => {
 		return (
-			<GridCell column='14/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
+			<GridCell column='16/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
 				{authenticatedUser.authenticated ? <Profile /> : 'Logga in'}
 			</GridCell>
 		)
@@ -22,7 +22,7 @@ export const DesktopNavigation = () => {
 				{'logotyp'}
 			</GridCell>
 			{displayUserIfAuthenticated()}
-			<GridCell column='16/18' onClick={() => navigate(Path.gettingStartedPage)}>
+			<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
 				{'Kom igång'}
 			</GridCell>
 		</Wrapper>

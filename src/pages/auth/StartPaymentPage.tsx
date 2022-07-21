@@ -9,7 +9,7 @@ export const StartPaymentPage: React.FC = () => {
 
 	return (
 		<Wrapper>
-			<Image src={bitcoin} alt='bitcoin' />
+			{/* <Image src={bitcoin} alt='bitcoin' /> */}
 			<input placeholder='pris' onChange={(event) => setAmount(event.target.value)} />
 			<button onClick={() => createInvoice(amount)}>create invoice</button>
 		</Wrapper>
@@ -19,7 +19,6 @@ export const StartPaymentPage: React.FC = () => {
 const Wrapper = styled.div`
 	position: absolute;
 	width: 100%;
-	top: 0;
 	height: 100vh;
 `
 
