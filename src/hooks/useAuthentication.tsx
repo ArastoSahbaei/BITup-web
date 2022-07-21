@@ -12,6 +12,14 @@ export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
 	const navigate = useNavigate()
 
+	const createAccountAndSendInvite = () => {
+		try {
+			console.log('xd')
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	const login = async (credential: IloginCredentials) => {
 		try {
 			const { data } = await BitupService.login({ email: credential.email, password: credential.password })
@@ -32,19 +40,15 @@ export const useAuthentication = () => {
 		navigate(Path.landingPage)
 	}
 
-	const authenticationRequired = (AuthPage: JSX.Element, FallbackPage: JSX.Element) => {
-		return authenticatedUser.authenticated ? AuthPage : FallbackPage
-	}
-
 	const isUserAdmin = () => {
 		return authenticatedUser.role === userRoles.admin
 	}
 
 	return {
 		authenticatedUser,
+		createAccountAndSendInvite,
 		login,
 		logout,
 		isUserAdmin,
-		authenticationRequired,
 	}
 }
