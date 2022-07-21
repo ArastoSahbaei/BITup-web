@@ -7,16 +7,19 @@ import { IloginCredentials } from '../shared/interfaces'
 import { nonAuthenticatedUser } from '../shared/mock'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
+import { IcreateAccount } from '../shared/interfaces/UserInterface'
 
 export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
 	const navigate = useNavigate()
 
-	const createAccountAndSendInvite = () => {
+	const createAccountAndSendInvite = (newAccount: IcreateAccount) => {
 		try {
-			console.log('xd')
+			BitupService.createAccount(newAccount)
+			toast.success('Account created successfully!')
 		} catch (error) {
 			console.log(error)
+			toast.error('Something went wrong!')
 		}
 	}
 
