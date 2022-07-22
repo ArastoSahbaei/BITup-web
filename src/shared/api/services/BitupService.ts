@@ -9,4 +9,12 @@ const login = (data: IloginCredentials) => {
 	return http.post('/login', data)
 }
 
-export default { login, createAccount }
+const retrieveLostAccount = (email: string) => {
+	return http.post('/retrieveaccount', { email: email })
+}
+
+export default {
+	login,
+	createAccount,
+	retrieveLostAccount
+}

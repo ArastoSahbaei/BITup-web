@@ -23,6 +23,16 @@ export const useAuthentication = () => {
 		}
 	}
 
+	const retrieveLostAccount = async (email: string) => {
+		try {
+			BitupService.retrieveLostAccount(email)
+			toast.success(`Återställningslänk har skickas till ${email}`)
+		} catch (error) {
+			console.log(error)
+			toast.error('Something went wrong!')
+		}
+	}
+
 	const login = async (credential: IloginCredentials) => {
 		try {
 			const { data } = await BitupService.login({ email: credential.email, password: credential.password })
@@ -50,6 +60,7 @@ export const useAuthentication = () => {
 	return {
 		authenticatedUser,
 		createAccountAndSendInvite,
+		retrieveLostAccount,
 		login,
 		logout,
 		isUserAdmin,
