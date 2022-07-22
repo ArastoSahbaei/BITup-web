@@ -3,11 +3,10 @@ import { userRoles } from '../shared/enums'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../shared/providers/UserProvider'
-import { IloginCredentials, IresetPassword } from '../shared/interfaces'
 import { nonAuthenticatedUser } from '../shared/mock'
+import { IcreateAccount, IloginCredentials, IresetPassword } from '../shared/interfaces'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
-import { IcreateAccount } from '../shared/interfaces/UserInterface'
 
 export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
