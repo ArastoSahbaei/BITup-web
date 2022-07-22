@@ -25,3 +25,8 @@ export interface IpersonalDetails {
   zipCode?: string,
   phone?: string,
 }
+
+export interface IresetPassword {
+  token: string,
+  newPassword: string
+}

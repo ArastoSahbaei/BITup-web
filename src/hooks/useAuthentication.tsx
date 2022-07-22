@@ -3,7 +3,7 @@ import { userRoles } from '../shared/enums'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../shared/providers/UserProvider'
-import { IloginCredentials } from '../shared/interfaces'
+import { IloginCredentials, IresetPassword } from '../shared/interfaces'
 import { nonAuthenticatedUser } from '../shared/mock'
 import BitupService from '../shared/api/services/BitupService'
 import Path from '../routes/Path'
@@ -47,6 +47,17 @@ export const useAuthentication = () => {
 		}
 	}
 
+	const resetPasswordWithToken = async (newData: IresetPassword) => {
+		try {
+			const { data } = await BitupService.resetPasswordWithToken(newData)
+			toast.success('Lösenord har uppdaterats!')
+			console.log(data)
+		} catch (error) {
+			console.log(error)
+			toast.error('Something went wrong!')
+		}
+	}
+
 	const logout = () => {
 		localStorage.removeItem('token')
 		setAuthenticatedUser(nonAuthenticatedUser)
@@ -61,6 +72,7 @@ export const useAuthentication = () => {
 		authenticatedUser,
 		createAccountAndSendInvite,
 		retrieveLostAccount,
+		resetPasswordWithToken,
 		login,
 		logout,
 		isUserAdmin,

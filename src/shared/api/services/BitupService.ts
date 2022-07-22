@@ -1,4 +1,5 @@
 import { IcreateAccount, IloginCredentials } from '../../interfaces'
+import { IresetPassword } from '../../interfaces/UserInterface'
 import http from '../BitupAPI'
 
 const createAccount = (data: IcreateAccount) => {
@@ -13,8 +14,13 @@ const retrieveLostAccount = (email: string) => {
 	return http.post('/retrieveaccount', { email: email })
 }
 
+const resetPasswordWithToken = (data: IresetPassword) => {
+	return http.post('/resetpassword', data)
+}
+
 export default {
 	login,
 	createAccount,
-	retrieveLostAccount
+	retrieveLostAccount,
+	resetPasswordWithToken
 }
