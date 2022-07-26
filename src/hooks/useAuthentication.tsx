@@ -46,6 +46,16 @@ export const useAuthentication = () => {
 		}
 	}
 
+	const validateUserEmail = async (token: string) => {
+		try {
+			await BitupService.validateUserEmail(token)
+			toast.success('Ditt konto är nu validerat!')
+		} catch (error: any) {
+			console.log(error)
+			toast.error(error.response.data.message || 'Något gick fel!')
+		}
+	}
+
 	const resetPasswordWithToken = async (newData: IresetPassword) => {
 		try {
 			const { data } = await BitupService.resetPasswordWithToken(newData)
@@ -69,11 +79,12 @@ export const useAuthentication = () => {
 
 	return {
 		authenticatedUser,
-		createAccountAndSendInvite,
-		retrieveLostAccount,
-		resetPasswordWithToken,
 		login,
 		logout,
 		isUserAdmin,
+		validateUserEmail,
+		retrieveLostAccount,
+		resetPasswordWithToken,
+		createAccountAndSendInvite,
 	}
 }

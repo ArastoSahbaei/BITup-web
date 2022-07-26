@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage } from '../pages'
+import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from '../pages'
 import { HistoryPage, ProfilePage, StartPaymentPage } from '../pages/auth'
 import { AdminLandingPage } from '../pages/admin'
 import { UserContext } from '../shared/providers/UserProvider'
@@ -30,6 +30,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
 				<Route path={Path.signInPage} element={<SignInPage />} />
 				<Route path={Path.resetPasswordPage} element={<ResetPasswordPage />} />
+				<Route path={Path.validateUserEmailPage} element={<ValidateUserEmailPage />} />
 				{/* AUTHENTICATED ROUTES */}
 				<Route path={Path.auth.profilePage} element={authenticationRequired(<ProfilePage />)} />
 				<Route path={Path.auth.historyPage} element={authenticationRequired(<HistoryPage />)} />

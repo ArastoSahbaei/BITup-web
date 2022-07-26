@@ -18,9 +18,14 @@ const resetPasswordWithToken = (data: IresetPassword) => {
 	return http.post('/resetpassword', data)
 }
 
+const validateUserEmail = (token: string) => {
+	return http.post('/emailverification', { token: token })
+}
+
 export default {
 	login,
 	createAccount,
+	validateUserEmail,
 	retrieveLostAccount,
 	resetPasswordWithToken
 }

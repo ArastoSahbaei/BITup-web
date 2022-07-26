@@ -2,6 +2,7 @@ const landingPage = '/home'
 const signInPage = '/logga-in'
 const gettingStartedPage = '/kom-i-kontakt'
 const resetPasswordPage = '/reset/:token'
+const validateUserEmailPage = '/validate/:token'
 
 const auth = {
 	profilePage: '/profil',
@@ -18,6 +19,7 @@ export default {
 	signInPage,
 	gettingStartedPage,
 	resetPasswordPage,
+	validateUserEmailPage,
 	auth,
 	admin
 }
