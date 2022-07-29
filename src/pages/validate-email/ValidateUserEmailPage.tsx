@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useAuthentication } from '../../hooks'
+import { useAuthentication } from 'hooks'
 
 export const ValidateUserEmailPage: React.FC = () => {
 	const { token } = useParams()

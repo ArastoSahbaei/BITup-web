@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useAuthentication } from '../hooks'
-import { IloginCredentials } from '../shared/interfaces'
+import { useAuthentication } from '../../hooks'
+import { IloginCredentials } from '../../shared/interfaces'
 
 export const SignInPage: React.FC = () => {
 	const [loginCredentials, setLoginCredentials] = useState<IloginCredentials>({ email: '', password: '' })

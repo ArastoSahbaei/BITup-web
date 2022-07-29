@@ -1,5 +1,5 @@
-export { SignInPage } from './SignInPage'
-export { LandingPage } from './LandingPage'
-export { GettingStartedPage } from './GettingStartedPage'
+export { SignInPage } from './sign-in/SignInPage'
+export { LandingPage } from './landing/LandingPage'
+export { GettingStartedPage } from './getting-started/GettingStartedPage'
 export { ResetPasswordPage } from './reset-password/ResetPasswordPage'
 export { ValidateUserEmailPage } from './validate-email/ValidateUserEmailPage'

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useBTCPay } from '../../hooks'
+import { useBTCPay } from '../../../hooks'
 import bitcoin from '../../shared/images/bitcoin.png'
 import styled from 'styled-components'
 
-export const StartPaymentPage: React.FC = () => {
+export const InitializePaymentPage: React.FC = () => {
 	const { createInvoice } = useBTCPay()
 	const [amount, setAmount] = useState<string>('0.00')
 

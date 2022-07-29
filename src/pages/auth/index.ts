@@ -1,3 +1,3 @@
-export { HistoryPage } from './HistoryPage'
-export { ProfilePage } from './ProfilePage'
-export { StartPaymentPage } from './StartPaymentPage'
+export { HistoryPage } from './history/HistoryPage'
+export { ProfilePage } from './profile/ProfilePage'
+export { InitializePaymentPage } from './initialize-payment/InitializePaymentPage'

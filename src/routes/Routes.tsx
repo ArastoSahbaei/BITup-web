@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from '../pages'
-import { HistoryPage, ProfilePage, StartPaymentPage } from '../pages/auth'
-import { AdminLandingPage } from '../pages/admin'
-import { UserContext } from '../shared/providers/UserProvider'
+import { userRoles } from 'shared/enums'
 import { useContext } from 'react'
-import { userRoles } from '../shared/enums'
+import { UserContext } from 'shared/providers/UserProvider'
+import { AdminLandingPage } from 'pages/admin'
+import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
+import { HistoryPage, ProfilePage, InitializePaymentPage } from 'pages/auth'
+import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
 import Path from './Path'
 
 export const Routes = (props: { children: JSX.Element }) => {
@@ -34,7 +34,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 				{/* AUTHENTICATED ROUTES */}
 				<Route path={Path.auth.profilePage} element={authenticationRequired(<ProfilePage />)} />
 				<Route path={Path.auth.historyPage} element={authenticationRequired(<HistoryPage />)} />
-				<Route path={Path.auth.startPaymentPage} element={authenticationRequired(<StartPaymentPage />)} />
+				<Route path={Path.auth.startPaymentPage} element={authenticationRequired(<InitializePaymentPage />)} />
 				{/* ADMIN ROUTES */}
 				<Route path={Path.admin.landingPage} element={adminRequired(<AdminLandingPage />)} />
 				{/* DEFAULT ROUTE */}
