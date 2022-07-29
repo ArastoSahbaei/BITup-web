@@ -1,8 +1,8 @@
-import { useWindowDimensions } from '../../hooks'
+import { useWindowDimensions } from 'hooks'
 import { DesktopNavigation } from './desktopnavigation/DesktopNavigation'
 import { MobileNavigation } from './mobilenavigation/MobileNavigation'
 
-export const Navigation = () => {
+export const Navigation: React.FC = () => {
 	const { width } = useWindowDimensions()
 
 	const determineDimension = () => {

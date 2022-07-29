@@ -1,4 +1,4 @@
-import BTCPayService from '../shared/api/services/BTCPayService'
+import BTCPayService from 'shared/api/services/BTCPayService'
 import { useAuthentication } from './useAuthentication'
 
 export const useBTCPay = () => {

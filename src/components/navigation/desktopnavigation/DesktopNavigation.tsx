@@ -1,10 +1,10 @@
+import { useAuthentication } from 'hooks'
 import { useNavigate } from 'react-router-dom'
-import { useAuthentication } from '../../../hooks'
 import { Profile } from './components/Profile'
 import styled from 'styled-components'
-import Path from '../../../routes/Path'
+import Path from 'routes/Path'
 
-export const DesktopNavigation = () => {
+export const DesktopNavigation: React.FC = () => {
 	const navigate = useNavigate()
 	const { authenticatedUser, isUserAdmin } = useAuthentication()
 

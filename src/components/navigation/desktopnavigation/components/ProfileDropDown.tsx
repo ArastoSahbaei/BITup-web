@@ -1,5 +1,5 @@
+import Path from 'routes/Path'
 import styled from 'styled-components'
-import Path from '../../../../routes/Path'
 import { Item } from './Item'
 
 export const ProfileDropDown = () => {
