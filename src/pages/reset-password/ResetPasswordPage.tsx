@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useAuthentication } from '../../hooks'
+import { useAuthentication } from 'hooks'
+import { useState, useEffect } from 'react'
 
 export const ResetPasswordPage: React.FC = () => {
 	const [newPassword, setNewPassword] = useState<string>('')

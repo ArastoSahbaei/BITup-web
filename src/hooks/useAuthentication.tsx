@@ -59,6 +59,9 @@ export const useAuthentication = () => {
 	const resetPasswordWithToken = async (newData: IresetPassword) => {
 		try {
 			const { data } = await BitupService.resetPasswordWithToken(newData)
+			setAuthenticatedUser(data)
+			navigate(Path.landingPage)
+			localStorage.setItem('token', data.token)
 			toast.success('Lösenord har uppdaterats!')
 			console.log(data)
 		} catch (error) {
