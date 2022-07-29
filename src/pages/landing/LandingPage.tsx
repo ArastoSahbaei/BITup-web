@@ -1,3 +1,6 @@
+import { useAuthentication } from 'hooks'
+
 export const LandingPage: React.FC = () => {
-	return <div>LandingPage</div>
+	const { validateUserToken } = useAuthentication()
+	return <div onClick={() => validateUserToken()}>LandingPage</div>
 }
