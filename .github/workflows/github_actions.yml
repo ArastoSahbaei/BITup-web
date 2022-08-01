@@ -1,4 +1,4 @@
-name: npm install && npm start
+name: install, build & start
 
 on:
   pull_request:

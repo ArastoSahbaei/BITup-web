@@ -8,7 +8,7 @@ export const App = () => {
 	return (
 		<>
 			<>
-				<GlobalStyle />
+				<GlobalSxtyle />
 				<ToastifyConfigurations />
 			</>
 			<UserProvider>
