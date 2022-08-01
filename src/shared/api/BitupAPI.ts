@@ -6,4 +6,10 @@ const BitupAPI = Axios.create({
 	headers: { 'Content-Type': 'application/json' }
 })
 
+BitupAPI.interceptors.request.use(function (config: any) {
+	const token = localStorage.getItem('token')
+	config.headers.authorization = token ? `: ${token}` : null
+	return config
+})
+
 export default BitupAPI

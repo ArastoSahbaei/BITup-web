@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react'
-import { IauthenticatedUser } from '../interfaces'
-import { nonAuthenticatedUser } from '../mock'
+import { nonAuthenticatedUser } from 'shared/mock'
+import { IauthenticatedUser } from 'shared/interfaces'
 
 export const UserContext = createContext<any>(null)
 

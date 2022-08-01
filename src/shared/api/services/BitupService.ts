@@ -1,5 +1,4 @@
-import { IcreateAccount, IloginCredentials } from '../../interfaces'
-import { IresetPassword } from '../../interfaces/UserInterface'
+import { IcreateAccount, IloginCredentials, IresetPassword } from '../../interfaces'
 import http from '../BitupAPI'
 
 const createAccount = (data: IcreateAccount) => {
@@ -22,8 +21,13 @@ const validateUserEmail = (token: string) => {
 	return http.post('/emailverification', { token: token })
 }
 
+const validateToken = () => {
+	return http.post('/validate')
+}
+
 export default {
 	login,
+	validateToken,
 	createAccount,
 	validateUserEmail,
 	retrieveLostAccount,

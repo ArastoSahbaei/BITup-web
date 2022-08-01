@@ -1,14 +1,17 @@
 import { userRoles } from 'shared/enums'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from 'shared/providers/UserProvider'
 import { AdminLandingPage } from 'pages/admin'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 import { HistoryPage, ProfilePage, InitializePaymentPage } from 'pages/auth'
 import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
 import Path from './Path'
+import { validateToken } from 'functions'
+import { nonAuthenticatedUser } from 'shared/mock'
+import BitupService from 'shared/api/services/BitupService'
 
 export const Routes = (props: { children: JSX.Element }) => {
-	const { authenticatedUser } = useContext(UserContext)
+	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
 
 	const authenticationRequired = (AuthPage: JSX.Element, FallbackPage?: any) => {
 		const fallBack = FallbackPage ? FallbackPage : LandingPage
@@ -21,6 +24,32 @@ export const Routes = (props: { children: JSX.Element }) => {
 		const isAdmin = authenticatedUser.role === userRoles.admin
 		return isAuthenticated && isAdmin ? AdminPage : fallBack
 	}
+
+	const validateUserToken = async () => {
+		const token = localStorage.getItem('token')
+		if (!token) {
+			return
+		}
+		const base64Url = token.split('.')[1]
+		const base64 = base64Url.replace('-', '+').replace('_', '/')
+		const JWT = JSON.parse(window.atob(base64))
+		if (validateToken(JWT.exp)) {
+			try {
+				const { data } = await BitupService.validateToken()
+				setAuthenticatedUser(data)
+			} catch (error) {
+				setAuthenticatedUser(nonAuthenticatedUser)
+				localStorage.removeItem('token')
+			}
+		} else {
+			setAuthenticatedUser(nonAuthenticatedUser)
+			localStorage.removeItem('token')
+		}
+	}
+
+	useEffect(() => {
+		validateUserToken()
+	}, [])
 
 	return (
 		<BrowserRouter>

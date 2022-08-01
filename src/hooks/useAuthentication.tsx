@@ -81,37 +81,12 @@ export const useAuthentication = () => {
 		return authenticatedUser.role === userRoles.admin
 	}
 
-	const validateUserToken = async () => {
-		const token = localStorage.getItem('token')
-		if (!token) {
-			return
-		}
-		const base64Url = token.split('.')[1]
-		const base64 = base64Url.replace('-', '+').replace('_', '/')
-		const JWT = JSON.parse(window.atob(base64))
-		if (validateToken(JWT.exp)) {
-			// TODO: There has to be a better way to recieve the username? You cannot just do a getUserWithID like this?
-			// TODO: Sign in with a new token instead of recieving the user with getUserWithID?
-			try {
-			/* 	const { data } = await CodicAPIService.getUserWithID(JWT.id) */
-				// TODO: recieve the authenticatid variable from server so that only data can be set
-			/* 	setAuthenticatedUser(data) */
-			} catch (error) {
-				console.log(error)
-			}
-		} else {
-			setAuthenticatedUser(nonAuthenticatedUser)
-			localStorage.removeItem('token')
-		}
-	}
-
 	return {
 		authenticatedUser,
 		login,
 		logout,
 		isUserAdmin,
 		validateUserEmail,
-		validateUserToken,
 		retrieveLostAccount,
 		resetPasswordWithToken,
 		createAccountAndSendInvite,
