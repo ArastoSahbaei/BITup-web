@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bitup-web/static/css/main.039bf95e.css",
+    "main.js": "/bitup-web/static/js/main.1898aa47.js",
+    "static/js/787.f41738ca.chunk.js": "/bitup-web/static/js/787.f41738ca.chunk.js",
+    "static/media/PressStart2P.ttf": "/bitup-web/static/media/PressStart2P.5f45b52192a301cb8ccd.ttf",
+    "index.html": "/bitup-web/index.html",
+    "main.039bf95e.css.map": "/bitup-web/static/css/main.039bf95e.css.map",
+    "main.1898aa47.js.map": "/bitup-web/static/js/main.1898aa47.js.map",
+    "787.f41738ca.chunk.js.map": "/bitup-web/static/js/787.f41738ca.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.039bf95e.css",
+    "static/js/main.1898aa47.js"
+  ]
+}
