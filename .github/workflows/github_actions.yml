@@ -1,4 +1,4 @@
-name: Github Actions Example
+name: npm install && npm start
 
 on:
   pull_request:
