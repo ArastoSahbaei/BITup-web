@@ -1,14 +1,14 @@
 import { userRoles } from 'shared/enums'
-import { useContext, useEffect } from 'react'
 import { UserContext } from 'shared/providers/UserProvider'
+import { validateToken } from 'functions'
 import { AdminLandingPage } from 'pages/admin'
+import { nonAuthenticatedUser } from 'shared/mock'
+import { useContext, useEffect } from 'react'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 import { HistoryPage, ProfilePage, InitializePaymentPage } from 'pages/auth'
 import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
-import Path from './Path'
-import { validateToken } from 'functions'
-import { nonAuthenticatedUser } from 'shared/mock'
 import BitupService from 'shared/api/services/BitupService'
+import Path from './Path'
 
 export const Routes = (props: { children: JSX.Element }) => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
