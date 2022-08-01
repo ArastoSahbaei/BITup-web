@@ -21,4 +21,4 @@ jobs:
     - name: Install Project
       run: npm install
     - name: Start Project
-      run: npm start & npx wait-on http://localhost:3000
+      run: npm start
