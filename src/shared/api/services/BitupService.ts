@@ -21,6 +21,10 @@ const validateUserEmail = (token: string) => {
 	return http.post('/emailverification', { token: token })
 }
 
+const updatePassword = (password: string) => {
+	return http.put('/update-password', { password: password })
+}
+
 const validateToken = () => {
 	return http.post('/validate')
 }
@@ -29,6 +33,7 @@ export default {
 	login,
 	validateToken,
 	createAccount,
+	updatePassword,
 	validateUserEmail,
 	retrieveLostAccount,
 	resetPasswordWithToken
