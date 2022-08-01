@@ -1,24 +1,27 @@
- name: Deploy to github pages
+name: Build and Test
+
 on:
   push:
-    branches:
-      - master
-  jobs:
-    gh-pages-deploy:
-      name: Deploying to gh-pages
-      runs-on: ubuntu-latest
-      steps:
-        - name: Setup Node.js for use with actions
-          uses: actions/setup-node@v2
-          with:
-            version:  12.x
-        - name: Checkout branch
-          uses: actions/checkout@v2
+    branches: [master]
+  pull_request:
+    branches: [master]
 
-        - name: Clean install dependencies
-          run: npm ci
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
 
-        - name: Run deploy script
-          run: |
-            git config user.name "Arasto Sahbaei" && git config user.email "arasto.sahbaei@gmail.com"
-            npm run gh-pages-deploy
+    strategy:
+      matrix:
+        node: [12, 14, 16]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install project
+        run: npm install
+      - name: Build the project
+        run: npm run build --if-present
