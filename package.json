@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deleteBranches": "git branch | grep -v \"master\" | xargs git branch -D"
+    "deleteBranches": "git branch | grep -v \"master\" | xargs git branch -D",
+    "lint": "npx eslint src/ --ext .ts,.tsx,.js,.jsx,.json"
   },
   "eslintConfig": {
     "extends": [
