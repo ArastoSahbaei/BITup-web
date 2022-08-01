@@ -1,25 +1,24 @@
-name: Node.js CI
-
+ name: Deploy to github pages
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+  jobs:
+    gh-pages-deploy:
+      name: Deploying to gh-pages
+      runs-on: ubuntu-latest
+      steps:
+        - name: Setup Node.js for use with actions
+          uses: actions/setup-node@v2
+          with:
+            version:  12.x
+        - name: Checkout branch
+          uses: actions/checkout@v2
 
-jobs:
-  build:
+        - name: Clean install dependencies
+          run: npm ci
 
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
+        - name: Run deploy script
+          run: |
+            git config user.name "Arasto Sahbaei" && git config user.email "arasto.sahbaei@gmail.com"
+            npm run gh-pages-deploy
