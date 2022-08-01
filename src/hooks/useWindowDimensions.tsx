@@ -6,9 +6,7 @@ const getWindowDimensions = () => {
 }
 
 export const useWindowDimensions = () => {
-	const [windowDimensions, setWindowDimensions] = useState(
-		getWindowDimensions()
-	)
+	const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
 	const handleResize = () => {
 		setWindowDimensions(getWindowDimensions())
 	}
