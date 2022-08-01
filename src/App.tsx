@@ -13,7 +13,7 @@ export const App = () => {
 			</>
 			<UsereeeProvider>
 				<Routes>
-					<Navigation />
+					<Nadvigation />
 				</Routes>
 			</UserProvider>
 		</>
