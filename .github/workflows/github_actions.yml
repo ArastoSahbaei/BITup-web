@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: npm install && npm start
+    name: install, build & start
     runs-on: ubuntu-latest
 
     steps:
