@@ -4,7 +4,7 @@ import { DropDownWrapper, ProfileDropDown } from './ProfileDropDown'
 export const Profile = () => {
 	return (
 		<Wrapper>
-			<p>Konto</p>
+			<Title>Konto</Title>
 			<ProfileDropDown />
 		</Wrapper>
 	)
@@ -21,4 +21,10 @@ const Wrapper = styled.div`
 			visibility: visible !important;
 		}
 	}
+`
+
+const Title = styled.span`
+	text-align: center;
+	justify-self: center;
+	align-self: center;
 `

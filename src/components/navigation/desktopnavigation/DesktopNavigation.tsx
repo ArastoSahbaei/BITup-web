@@ -12,10 +12,10 @@ export const DesktopNavigation: React.FC = () => {
 		return (
 			<>
 				<GridCell column='15/16' onClick={() => navigate(Path.signInPage)}>
-					{'Logga in'}
+					Logga in
 				</GridCell>
 				<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
-					{'Kom igång'}
+					Kom igång
 				</GridCell>
 			</>
 		)
@@ -33,7 +33,7 @@ export const DesktopNavigation: React.FC = () => {
 		return (
 			isUserAdmin() && (
 				<GridCell column='10/10' onClick={() => navigate(Path.admin.landingPage)}>
-					{'Admin'}
+					Admin
 				</GridCell>
 			)
 		)
@@ -42,7 +42,7 @@ export const DesktopNavigation: React.FC = () => {
 	return (
 		<Wrapper>
 			<GridCell column='4/4' onClick={() => navigate(Path.landingPage)}>
-				{'TransBIT'}
+				TransBIT
 			</GridCell>
 			{displayAdminNav()}
 			{isUserAuthenticated() && displayUserIfAuthenticated()}
