@@ -8,6 +8,7 @@ on:
       - develop
 
 jobs:
+  test:
     name: install, build & start
     runs-on: ubuntu-latest
 
