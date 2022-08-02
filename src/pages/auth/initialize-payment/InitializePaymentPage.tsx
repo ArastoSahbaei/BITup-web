@@ -16,11 +16,7 @@ export const InitializePaymentPage: React.FC = () => {
 	)
 }
 
-const Wrapper = styled.div`
-	position: absolute;
-	width: 100%;
-	height: 100vh;
-`
+const Wrapper = styled.div``
 
 const Image = styled.img`
 	width: 100%;
