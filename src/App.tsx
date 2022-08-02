@@ -11,7 +11,7 @@ export const App = () => {
 				<GlobalStyle />
 				<ToastifyConfigurations />
 			</>
-			<UserProxvider>
+			<UserProvider>
 				<Routes>
 					<Navigation />
 				</Routes>
