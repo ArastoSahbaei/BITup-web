@@ -7,7 +7,6 @@ import { nonAuthenticatedUser } from 'shared/mock'
 import { IcreateAccount, IloginCredentials, IresetPassword } from 'shared/interfaces'
 import BitupService from 'shared/api/services/BitupService'
 import Path from 'routes/Path'
-import { validateToken } from 'functions'
 
 export const useAuthentication = () => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
@@ -81,12 +80,17 @@ export const useAuthentication = () => {
 		return authenticatedUser.role === userRoles.admin
 	}
 
+	const isUserAuthenticated = () => {
+		return authenticatedUser.authenticated
+	}
+
 	return {
 		authenticatedUser,
 		login,
 		logout,
 		isUserAdmin,
 		validateUserEmail,
+		isUserAuthenticated,
 		retrieveLostAccount,
 		resetPasswordWithToken,
 		createAccountAndSendInvite,

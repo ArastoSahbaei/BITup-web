@@ -6,17 +6,30 @@ import Path from 'routes/Path'
 
 export const DesktopNavigation: React.FC = () => {
 	const navigate = useNavigate()
-	const { authenticatedUser, isUserAdmin } = useAuthentication()
+	const { isUserAuthenticated, isUserAdmin } = useAuthentication()
+
+	const nonAuthNav = () => {
+		return (
+			<>
+				<GridCell column='15/16' onClick={() => navigate(Path.signInPage)}>
+					{'Logga in'}
+				</GridCell>
+				<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
+					{'Kom igång'}
+				</GridCell>
+			</>
+		)
+	}
 
 	const displayUserIfAuthenticated = () => {
 		return (
-			<GridCell column='14/16' onClick={() => !authenticatedUser.authenticated && navigate(Path.signInPage)}>
-				{authenticatedUser.authenticated ? <Profile /> : 'Logga in'}
+			<GridCell column='17/17'>
+				<Profile />
 			</GridCell>
 		)
 	}
 
-	const displayAdmin = () => {
+	const displayAdminNav = () => {
 		return (
 			isUserAdmin() && (
 				<GridCell column='10/10' onClick={() => navigate(Path.admin.landingPage)}>
@@ -28,14 +41,12 @@ export const DesktopNavigation: React.FC = () => {
 
 	return (
 		<Wrapper>
-			<GridCell column='3/5' onClick={() => navigate(Path.landingPage)}>
-				{'logotyp'}
+			<GridCell column='4/4' onClick={() => navigate(Path.landingPage)}>
+				{'TransBIT'}
 			</GridCell>
-			{displayAdmin()}
-			{displayUserIfAuthenticated()}
-			<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
-				{'Kom igång'}
-			</GridCell>
+			{displayAdminNav()}
+			{isUserAuthenticated() && displayUserIfAuthenticated()}
+			{!isUserAuthenticated() && nonAuthNav()}
 		</Wrapper>
 	)
 }

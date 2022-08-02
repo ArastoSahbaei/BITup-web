@@ -1,15 +1,20 @@
 import Path from 'routes/Path'
 import styled from 'styled-components'
 import { Item } from './Item'
+import logout from 'shared/images/svg/logout.svg'
+import history from 'shared/images/svg/history.svg'
+import profile from 'shared/images/svg/profile.svg'
+import invoice from 'shared/images/svg/invoice.svg'
 
 export const ProfileDropDown = () => {
 	return (
 		<DropDownWrapper>
 			<UList>
-				<Item navigateTo={Path.auth.profilePage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Profil' />
-				<Item navigateTo={Path.auth.startPaymentPage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Betalningar' />
-				<Item navigateTo={Path.auth.historyPage} image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Historik' />
-				<Item image={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/2214px-How_to_use_icon.svg.png'} text='Logga ut' />
+				<Item navigateTo={Path.auth.profilePage} image={profile} text='Profil' />
+				<Item navigateTo={Path.auth.startPaymentPage} image={invoice} text='Ny Betalning' />
+				<Item navigateTo={Path.auth.historyPage} image={history} text='Historik' />
+				<hr />
+				<Item image={logout} text='Logga ut' />
 			</UList>
 		</DropDownWrapper>
 	)

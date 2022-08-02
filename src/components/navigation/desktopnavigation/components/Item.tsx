@@ -19,7 +19,7 @@ export const Item = (props: { navigateTo?: string; image: any; text: string }) =
 }
 
 const Icon = styled.img`
-	width: 25px;
+	width: 36px;
 	height: 100%;
 	vertical-align: middle;
 	color: white;
