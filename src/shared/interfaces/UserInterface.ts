@@ -13,7 +13,7 @@ export interface IloginCredentials {
 
 export interface IcreateAccount {
   email: string
-  storeID: string,
+  storeName: string,
   personalDetails: IpersonalDetails
 }
 

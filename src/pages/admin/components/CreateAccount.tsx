@@ -14,7 +14,7 @@ export const CreateAccount = () => {
 	})
 	const [accountData, setAccountData] = useState<IcreateAccount>({
 		email: '',
-		storeID: '',
+		storeName: '',
 		personalDetails: personalDetails,
 	})
 
