@@ -8,10 +8,7 @@ on:
       - develop
 
 jobs:
-  test:
-    name: install, build & start
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -24,9 +21,3 @@ jobs:
       run: CI=false npm run build
     - name: Start Project
       run: npm start & npx wait-on http://localhost:3000
-    - name: config1
-      run: git config --global user.email "arasto.sahbaei@gmail.com"
-    - name: config2
-      run: git config --global user.name "Arasto Sahbaei"
-    - name: Deploy Project
-      run: CI=false npm run deploy
