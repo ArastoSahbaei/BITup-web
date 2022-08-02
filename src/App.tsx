@@ -13,7 +13,10 @@ export const App = () => {
 			</>
 			<UserProvider>
 				<Routes>
-					<Navigation />
+					<>
+						<h1>TEST</h1>
+						<Navigation />
+					</>
 				</Routes>
 			</UserProvider>
 		</>

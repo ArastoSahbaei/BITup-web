@@ -24,3 +24,5 @@ jobs:
       run: CI=false npm run build
     - name: Start Project
       run: npm start & npx wait-on http://localhost:3000
+    - name: Deploy Project
+      run: npm run deploy
