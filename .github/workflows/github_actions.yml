@@ -8,7 +8,10 @@ on:
       - develop
 
 jobs:
-  runs-on: ubuntu-latest
+  test:
+    name: install, build & start
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
