@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useBTCPay } from '../../../hooks'
-import bitcoin from '../../shared/images/bitcoin.png'
 import styled from 'styled-components'
 
 export const InitializePaymentPage: React.FC = () => {
@@ -9,9 +8,8 @@ export const InitializePaymentPage: React.FC = () => {
 
 	return (
 		<Wrapper>
-			{/* <Image src={bitcoin} alt='bitcoin' /> */}
 			<input placeholder='pris' onChange={(event) => setAmount(event.target.value)} />
-			<button onClick={() => createInvoice(amount)}>create invoice</button>
+			<button onClick={() => createInvoice(amount)}>Create invoice</button>
 		</Wrapper>
 	)
 }
