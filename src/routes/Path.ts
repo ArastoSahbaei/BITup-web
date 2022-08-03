@@ -1,12 +1,13 @@
-const landingPage = '/home'
 const signInPage = '/logga-in'
-const gettingStartedPage = '/kom-i-kontakt'
+const landingPage = '/home'
 const resetPasswordPage = '/reset/:token'
+const gettingStartedPage = '/kom-i-kontakt'
 const validateUserEmailPage = '/validate/:token'
 
 const auth = {
 	profilePage: '/profil',
 	historyPage: '/historik',
+	onBoardingPage: '/onboarding',
 	startPaymentPage: '/ny-betalning',
 }
 
@@ -15,10 +16,10 @@ const admin = {
 }
 
 export default {
-	landingPage,
 	signInPage,
-	gettingStartedPage,
+	landingPage,
 	resetPasswordPage,
+	gettingStartedPage,
 	validateUserEmailPage,
 	auth,
 	admin

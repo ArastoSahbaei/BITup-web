@@ -5,7 +5,7 @@ import { AdminLandingPage } from 'pages/admin'
 import { nonAuthenticatedUser } from 'shared/mock'
 import { useContext, useEffect } from 'react'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
-import { HistoryPage, ProfilePage, InitializePaymentPage } from 'pages/auth'
+import { HistoryPage, ProfilePage, InitializePaymentPage, OnBoardingPage } from 'pages/auth'
 import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
 import BitupService from 'shared/api/services/BitupService'
 import Path from './Path'
@@ -13,7 +13,7 @@ import Path from './Path'
 export const Routes = (props: { children: JSX.Element }) => {
 	const { authenticatedUser, setAuthenticatedUser } = useContext(UserContext)
 
-	const authenticationRequired = (AuthPage: JSX.Element, FallbackPage?: any) => {
+	const authRequired = (AuthPage: JSX.Element, FallbackPage?: any) => {
 		const fallBack = FallbackPage ? FallbackPage : LandingPage
 		return authenticatedUser.authenticated ? AuthPage : fallBack
 	}
@@ -55,15 +55,16 @@ export const Routes = (props: { children: JSX.Element }) => {
 		<BrowserRouter>
 			{props.children}
 			<Switch>
-				<Route path={Path.landingPage} element={<LandingPage />} />
-				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
 				<Route path={Path.signInPage} element={<SignInPage />} />
+				<Route path={Path.landingPage} element={<LandingPage />} />
 				<Route path={Path.resetPasswordPage} element={<ResetPasswordPage />} />
+				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
 				<Route path={Path.validateUserEmailPage} element={<ValidateUserEmailPage />} />
 				{/* AUTHENTICATED ROUTES */}
-				<Route path={Path.auth.profilePage} element={authenticationRequired(<ProfilePage />)} />
-				<Route path={Path.auth.historyPage} element={authenticationRequired(<HistoryPage />)} />
-				<Route path={Path.auth.startPaymentPage} element={authenticationRequired(<InitializePaymentPage />)} />
+				<Route path={Path.auth.profilePage} element={authRequired(<ProfilePage />)} />
+				<Route path={Path.auth.historyPage} element={authRequired(<HistoryPage />)} />
+				<Route path={Path.auth.onBoardingPage} element={authRequired(<OnBoardingPage />)} />
+				<Route path={Path.auth.startPaymentPage} element={authRequired(<InitializePaymentPage />)} />
 				{/* ADMIN ROUTES */}
 				<Route path={Path.admin.landingPage} element={adminRequired(<AdminLandingPage />)} />
 				{/* DEFAULT ROUTE */}
