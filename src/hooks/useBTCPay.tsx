@@ -28,7 +28,7 @@ export const useBTCPay = () => {
 
 	const getInvoices = async () => {
 		try {
-			const { data } = await BTCPayService.getInvoices('dJMYyWacgEUTQTsqpmWpKTiA8jDYABv4NNZuZXXkrxY')
+			const { data } = await BTCPayService.getInvoices(authenticatedUser.store.id)
 			console.log('data', data)
 		} catch (error) {
 			toast.error('Det uppstod ett fel!')
