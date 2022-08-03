@@ -49,10 +49,12 @@ export const useAuthentication = () => {
 	const validateUserEmail = async (token: string) => {
 		try {
 			await BitupService.validateUserEmail(token)
+			navigate(Path.auth.profilePage)
 			toast.success('Ditt konto är nu validerat!')
 		} catch (error: any) {
 			console.log(error)
 			toast.error(error.response.data.message || 'Något gick fel!')
+			navigate(Path.landingPage)
 		}
 	}
 
