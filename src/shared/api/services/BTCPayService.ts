@@ -1,6 +1,10 @@
-import http from '../BTCPayAPI'
+import http from '../BitupAPI'
 
-const getStores = () => {
+const getInvoices = (storeID: string) => {
+	return http.post('/btcpay/invoices', { storeID: storeID })
+}
+
+/* const getStores = () => {
 	return http.get('/api/v1/stores')
 }
 
@@ -12,9 +16,9 @@ const createInvoice = (storeID: string, amount: string) => {
 			defaultLanguage: 'sv'
 		}
 	})
-}
+} */
+
 
 export default {
-	getStores,
-	createInvoice
+	getInvoices
 }

@@ -1,3 +1,6 @@
+import { useBTCPay } from 'hooks'
+
 export const HistoryPage: React.FC = () => {
-	return <div>HistoryPage</div>
+	const { getInvoices } = useBTCPay()
+	return <div onClick={() => console.log(getInvoices())}>HistoryPage</div>
 }
