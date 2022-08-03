@@ -42,7 +42,7 @@ export const DesktopNavigation: React.FC = () => {
 	return (
 		<Wrapper>
 			<GridCell column='4/4' onClick={() => navigate(Path.landingPage)}>
-				TransBIT
+				<LogoText>TransBIT</LogoText>
 			</GridCell>
 			{displayAdminNav()}
 			{isUserAuthenticated() && displayUserIfAuthenticated()}
@@ -70,9 +70,7 @@ const GridCell = styled.span<grid>`
 	cursor: pointer;
 `
 
-const Logotype = styled.img<grid>`
-	cursor: pointer;
-	width: 42px;
-	height: 42px;
-	grid-column: ${(props) => props.column};
+const LogoText = styled.span`
+	font-size: 1rem;
+	letter-spacing: 0.3rem;
 `
