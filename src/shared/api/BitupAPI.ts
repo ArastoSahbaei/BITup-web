@@ -1,8 +1,14 @@
 import Axios from 'axios'
 
-const baseURL = 'http://localhost:3001'
+const determineBaseURL = () => {
+	const devURL = 'http://localhost:3001'
+	const prodURL = 'https://transbit-server.herokuapp.com'
+	const isProd = process.env.REACT_APP_ENVIROMENT === 'PRODUCTION'
+	return isProd ? prodURL : devURL
+}
+
 const BitupAPI = Axios.create({
-	baseURL: baseURL,
+	baseURL: determineBaseURL(),
 	headers: { 'Content-Type': 'application/json' }
 })
 
