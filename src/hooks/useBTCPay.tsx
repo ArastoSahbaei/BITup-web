@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 export const useBTCPay = () => {
 	const { authenticatedUser } = useAuthentication()
 
-	/* 	const createInvoice = async (amount: string) => {
+	const createInvoice = async (amount: string) => {
 		try {
 			const { data } = await BTCPayService.createInvoice(authenticatedUser.store.id, amount)
 			window.open(data.checkoutLink)
@@ -14,17 +14,7 @@ export const useBTCPay = () => {
 			toast.error('Det uppstod ett fel!')
 			console.log(error)
 		}
-	} */
-
-	/* 	const getStores = async () => {
-		try {
-			const { data } = await BTCPayService.getStores()
-			console.log(data)
-		} catch (error) {
-			toast.error('Det uppstod ett fel!')
-			console.log(error)
-		}
-	} */
+	}
 
 	const getInvoices = async () => {
 		try {
@@ -38,7 +28,6 @@ export const useBTCPay = () => {
 
 	return {
 		getInvoices,
-		/* 	createInvoice,
-		getStores, */
+		createInvoice,
 	}
 }
