@@ -6,7 +6,7 @@ export const Navigation: React.FC = () => {
 	const { width } = useWindowDimensions()
 
 	const determineDimension = () => {
-		return width <= 100 ? <MobileNavigation /> : <DesktopNavigation />
+		return width <= 750 ? <MobileNavigation /> : <DesktopNavigation />
 	}
 
 	return determineDimension()
