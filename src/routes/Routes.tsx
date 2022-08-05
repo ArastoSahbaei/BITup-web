@@ -52,7 +52,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 	}, [])
 
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename='/BITup-web'>
 			{props.children}
 			<Switch>
 				<Route path={Path.signInPage} element={<SignInPage />} />
