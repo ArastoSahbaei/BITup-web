@@ -4,7 +4,7 @@ import { validateToken } from 'functions'
 import { AdminLandingPage } from 'pages/admin'
 import { nonAuthenticatedUser } from 'shared/mock'
 import { useContext, useEffect } from 'react'
-import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
+import { Routes as Switch, Route, HashRouter } from 'react-router-dom'
 import { HistoryPage, ProfilePage, InitializePaymentPage, OnBoardingPage } from 'pages/auth'
 import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
 import BitupService from 'shared/api/services/BitupService'
@@ -52,7 +52,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 	}, [])
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			{props.children}
 			<Switch>
 				<Route path={Path.signInPage} element={<SignInPage />} />
@@ -70,6 +70,6 @@ export const Routes = (props: { children: JSX.Element }) => {
 				{/* DEFAULT ROUTE */}
 				<Route path='*' element={<LandingPage />} />
 			</Switch>
-		</BrowserRouter>
+		</HashRouter>
 	)
 }
