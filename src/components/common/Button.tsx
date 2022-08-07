@@ -52,15 +52,17 @@ const ButtonWrapper = styled.button<IButton>`
 	letter-spacing: 1px;
 	border-radius: 30px;
 	font-weight: bold;
+	transition: 0.4s;
 	cursor: pointer;
-	box-shadow: rgb(4 17 29 / 25%) 8px 8px 8px 8px;
-
+	&:hover {
+		box-shadow: rgb(4 17 29 / 25%) 8px 8px 8px 8px;
+		transition: 0.4s;
+	}
 	${Span} {
 		display: inline-block;
 		position: relative;
 		transition: 0.3s;
 	}
-
 	&:hover ${Span} {
 		padding-right: ${(props) => (props.isLoading ? '0px;' : '20px;')};
 	}
