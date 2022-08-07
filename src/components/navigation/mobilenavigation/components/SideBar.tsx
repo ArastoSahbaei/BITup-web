@@ -1,4 +1,8 @@
+import { useAuthentication } from 'hooks'
+import { useNavigate } from 'react-router-dom'
+import { Header } from './Header'
 import styled from 'styled-components'
+import Path from 'routes/Path'
 
 interface Props {
 	drawerIsOpen: boolean
@@ -6,18 +10,49 @@ interface Props {
 }
 
 export const SideBar = (props: Props) => {
+	const navigate = useNavigate()
+	const { isUserAuthenticated, logout } = useAuthentication()
+
+	const redirect = (path: string) => {
+		props.drawerHandler(false)
+		navigate(path)
+	}
+
+	const logoutAndRedirect = () => {
+		logout()
+		navigate(Path.landingPage)
+	}
+
+	const notSignedInNav = () => {
+		return (
+			<>
+				<Paragraph onClick={() => redirect(Path.signInPage)}>Logga in</Paragraph>
+				<hr />
+				<Paragraph onClick={() => redirect(Path.gettingStartedPage)}>Läs mer</Paragraph>
+				<hr />
+			</>
+		)
+	}
+
+	const authNav = () => {
+		return (
+			<>
+				<hr />
+				<Paragraph onClick={() => redirect(Path.auth.profilePage)}>Profil</Paragraph>
+				<hr />
+				<Paragraph onClick={() => redirect(Path.auth.startPaymentPage)}>Ny Betalning</Paragraph>
+				<hr />
+				<Paragraph onClick={() => redirect(Path.auth.historyPage)}>Historik</Paragraph>
+				<hr />
+				<Paragraph onClick={() => logoutAndRedirect()}>Logout</Paragraph>
+				<hr />
+			</>
+		)
+	}
 	return (
 		<Drawer isOpen={props.drawerIsOpen}>
-			<Paragraph>CompanyName?</Paragraph>
-			<hr />
-			<Paragraph>Profil</Paragraph>
-			<hr />
-			<Paragraph>Ny Betalning</Paragraph>
-			<hr />
-			<Paragraph>Historik</Paragraph>
-			<hr />
-			<Paragraph>Logout</Paragraph>
-			<hr />
+			<Header redirect={redirect} />
+			{isUserAuthenticated() ? authNav() : notSignedInNav()}
 		</Drawer>
 	)
 }
@@ -25,11 +60,6 @@ export const SideBar = (props: Props) => {
 interface values {
 	isOpen: boolean
 }
-
-const MenuText = styled.p`
-	margin: 5px 10px 0px 10px;
-	text-align: center;
-`
 
 const Drawer = styled.nav<values>`
 	height: 100%;
@@ -51,7 +81,7 @@ const Paragraph = styled.p`
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 10px 30px;
-	padding: 3%;
+	padding: 8%;
 	font-weight: 600;
 	font-size: 1rem;
 	cursor: pointer;

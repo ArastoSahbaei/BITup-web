@@ -1,8 +1,8 @@
+import { HamburgerButton } from './components/HamburgerButton'
+import { SideBar } from './components/SideBar'
 import { Backdrop } from 'components/Backdrop'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { HamburgerButton } from './components/HamburgerButton'
-import { SideBar } from './components/SideBar'
 
 export const MobileNavigation: React.FC = (): JSX.Element => {
 	const [openDrawer, setOpenDrawer] = useState<boolean>(false)
