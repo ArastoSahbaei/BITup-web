@@ -52,6 +52,8 @@ const ButtonWrapper = styled.button<IButton>`
 	border-radius: 30px;
 	font-weight: bold;
 	cursor: pointer;
+  box-shadow: rgb(4 17 29 / 25%) 8px 8px 8px 8px;
+
 	${Span} {
 		display: inline-block;
 		position: relative;
