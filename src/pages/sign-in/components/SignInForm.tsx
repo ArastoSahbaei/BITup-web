@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 	padding: 6%;
 	border: 3px solid ${primaryColor};
+	background-color: white;
 	border-radius: 5%;
 	margin-top: 4%;
 	transition: 0.2s;
