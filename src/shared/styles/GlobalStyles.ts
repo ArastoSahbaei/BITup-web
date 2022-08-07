@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 import { fadeInOpacity } from './animations/fadeInOpacity'
 import PressStart2P from '../fonts/PressStart2P.ttf'
 
+export const primaryColor = '#00bcd4'
+export const secondaryColor = '#ff4081'
 export const primaryFont = 'PressStart2P'
 export const GlobalStyle = createGlobalStyle`
   * {

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Profile } from './components/Profile'
 import styled from 'styled-components'
 import Path from 'routes/Path'
+import { Button } from 'components/common'
 
 export const DesktopNavigation: React.FC = () => {
 	const navigate = useNavigate()
@@ -15,7 +16,7 @@ export const DesktopNavigation: React.FC = () => {
 					Logga in
 				</GridCell>
 				<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
-					Kom igång
+					<Button text='Kom igång'/>
 				</GridCell>
 			</>
 		)
