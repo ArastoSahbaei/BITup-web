@@ -1,9 +1,9 @@
 import { useAuthentication } from 'hooks'
 import { useNavigate } from 'react-router-dom'
 import { Profile } from './components/Profile'
+import { Button } from 'components/common'
 import styled from 'styled-components'
 import Path from 'routes/Path'
-import { Button } from 'components/common'
 
 export const DesktopNavigation: React.FC = () => {
 	const navigate = useNavigate()
