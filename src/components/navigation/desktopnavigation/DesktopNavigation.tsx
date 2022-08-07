@@ -16,7 +16,7 @@ export const DesktopNavigation: React.FC = () => {
 					Logga in
 				</GridCell>
 				<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
-					<Button text='Kom igång'/>
+					<Button text='LÄS MER'/>
 				</GridCell>
 			</>
 		)

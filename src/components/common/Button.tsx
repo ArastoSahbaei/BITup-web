@@ -8,13 +8,14 @@ export interface IButton {
 	onClick?: (event: MouseEvent) => void
 	isLoading?: boolean
 	disabled?: boolean
+	upperCase?: boolean
 	style?: any
 }
 
 export const Button: React.FC<IButton> = (props: IButton) => {
-	const { text, onClick, isLoading, disabled } = props
+	const { text, onClick, isLoading, disabled, upperCase } = props
 	return (
-		<ButtonWrapper onClick={onClick} disabled={disabled} text={text} isLoading={isLoading} style={props.style}>
+		<ButtonWrapper onClick={onClick} disabled={disabled} text={text} isLoading={isLoading} upperCase={upperCase} style={props.style}>
 			<Span>{isLoading || text}</Span>
 			{isLoading && <Spinner />}
 		</ButtonWrapper>
@@ -47,12 +48,12 @@ const ButtonWrapper = styled.button<IButton>`
 	background-color: ${(props) => (props.isLoading ? secondaryColor : primaryColor)};
 	outline: none;
 	transition: background-color 0.2s;
-	text-transform: uppercase;
+	text-transform: ${(props) => (props.upperCase ? 'uppercase' : 'none')};
 	letter-spacing: 1px;
 	border-radius: 30px;
 	font-weight: bold;
 	cursor: pointer;
-  box-shadow: rgb(4 17 29 / 25%) 8px 8px 8px 8px;
+	box-shadow: rgb(4 17 29 / 25%) 8px 8px 8px 8px;
 
 	${Span} {
 		display: inline-block;
