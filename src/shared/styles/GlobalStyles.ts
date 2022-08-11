@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body, html {
 	animation: ${fadeInOpacity} 500ms ease-in;
+  background: #F4F4F4;
   }
   p, span, h1, h2, h3, h4, h5, h6 {
   font-family: Inter, cursive;
