@@ -1,4 +1,4 @@
-import { Button } from 'components/common'
+import { Button, Input } from 'components/common'
 import { useState } from 'react'
 import { primaryColor } from 'shared/styles/GlobalStyles'
 import { useAuthentication } from 'hooks'
@@ -16,11 +16,13 @@ export const SignInForm = () => {
 
 	return (
 		<Wrapper>
-			<Title>Transbit</Title>
-			<input placeholder='email' onChange={(event) => handleChange(event, 'email')} />
-			<input placeholder='password' type='password' onChange={(event) => handleChange(event, 'password')} />
-			<Button text={'Logga in'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
+			<Title>
+				Transbit <br /> Säkra transaktioner med kryptovalutor.
+			</Title>
+			<Input label='Email' onChange={(event: any) => handleChange(event, 'email')} />
+			<Input label='Password' type='password' onChange={(event: any) => handleChange(event, 'password')} />
 			<PasswordSpan>Glömt lösenord?</PasswordSpan>
+			<Button text={'Logga in'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
 			<br />
 			<PolicySpan>Läs mer om hur Transbit handskas med din data i vår policy sektion.</PolicySpan>
 			<br />

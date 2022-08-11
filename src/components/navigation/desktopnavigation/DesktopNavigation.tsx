@@ -2,6 +2,7 @@ import { useAuthentication } from 'hooks'
 import { useNavigate } from 'react-router-dom'
 import { Profile } from './components/Profile'
 import { Button } from 'components/common'
+import logotype from 'shared/images/png/logotype.png'
 import styled from 'styled-components'
 import Path from 'routes/Path'
 
@@ -16,7 +17,7 @@ export const DesktopNavigation: React.FC = () => {
 					Logga in
 				</GridCell>
 				<GridCell column='17/18' onClick={() => navigate(Path.gettingStartedPage)}>
-					<Button text='LÄS MER'/>
+					<Button text='LÄS MER' />
 				</GridCell>
 			</>
 		)
@@ -43,17 +44,12 @@ export const DesktopNavigation: React.FC = () => {
 	return (
 		<Wrapper>
 			<GridCell column='4/4' onClick={() => navigate(Path.landingPage)}>
-				<LogoText>TransBIT</LogoText>
+				<Image src={logotype} alt={'logotype'} />
 			</GridCell>
 			{displayAdminNav()}
-			{isUserAuthenticated() && displayUserIfAuthenticated()}
-			{!isUserAuthenticated() && nonAuthNav()}
+			{isUserAuthenticated() ? displayUserIfAuthenticated() : nonAuthNav()}
 		</Wrapper>
 	)
-}
-
-interface grid {
-	column?: string | ''
 }
 
 const Wrapper = styled.div`
@@ -64,14 +60,11 @@ const Wrapper = styled.div`
 	align-items: center;
 	box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
 `
-
-const GridCell = styled.span<grid>`
+const GridCell = styled.span<{ column?: string }>`
 	font-size: 0.8rem;
 	grid-column: ${(props) => props.column};
 	cursor: pointer;
 `
-
-const LogoText = styled.span`
-	font-size: 1rem;
+const Image = styled.img`
 	letter-spacing: 0.3rem;
 `
