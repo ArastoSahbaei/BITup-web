@@ -1,10 +1,4 @@
-export const Input = () => {
-	return (
-		<div>Input</div>
-	)
-}
-
-/* import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import TextField from '@mui/material/TextField'
 import styled from 'styled-components'
 
@@ -44,4 +38,3 @@ export const Input: React.FC<Props> = (props: Props) => {
 const Wrapper = styled.div`
 	padding-top: 12px;
 `
- */
