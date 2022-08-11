@@ -3,11 +3,11 @@ import { useState } from 'react'
 import { primaryColor } from 'shared/styles/GlobalStyles'
 import { useAuthentication } from 'hooks'
 import { IloginCredentials } from 'shared/interfaces'
+import logotype from 'shared/images/png/logotype.png'
 import styled from 'styled-components'
 
 export const SignInForm = () => {
 	const { login } = useAuthentication()
-
 	const [loginCredentials, setLoginCredentials] = useState<IloginCredentials>({ email: '', password: '' })
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>, target: keyof IloginCredentials) => {
@@ -16,9 +16,8 @@ export const SignInForm = () => {
 
 	return (
 		<Wrapper>
-			<Title>
-				Transbit <br /> Säkra transaktioner med kryptovalutor.
-			</Title>
+			{/* <Image src={logotype} alt='' /> */}
+			<Title>Logga in</Title>
 			<Input label='Email' onChange={(event: any) => handleChange(event, 'email')} />
 			<Input label='Password' type='password' onChange={(event: any) => handleChange(event, 'password')} />
 			<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
@@ -44,9 +43,12 @@ const Wrapper = styled.div`
 		transition: 0.5s;
 	}
 `
-
+const Image = styled.img`
+	width: 42px;
+	margin: 0 auto;
+	background-color: red;
+`
 const Title = styled.span``
-
 const PasswordSpan = styled.span`
 	font-size: 0.8rem;
 	padding: 2%;

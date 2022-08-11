@@ -2,6 +2,22 @@ import { withStyles } from '@material-ui/core/styles'
 import TextField from '@mui/material/TextField'
 import styled from 'styled-components'
 
+const InputField = withStyles({
+	root: {
+		'& label.Mui-focused': {
+			color: '#6e26fc',
+		},
+		'& .MuiInput-underline:after': {
+			borderBottomColor: '#6e26fc',
+		},
+		'& .MuiOutlinedInput-root': {
+			'&.Mui-focused fieldset': {
+				borderColor: '#6e26fc',
+			},
+		},
+	},
+})(TextField)
+
 interface Props {
 	label: string
 	onChange?: any
@@ -11,21 +27,6 @@ interface Props {
 
 export const Input: React.FC<Props> = (props: Props) => {
 	const { label, type, error = false, onChange } = props
-	const InputField = withStyles({
-		root: {
-			'& label.Mui-focused': {
-				color: '#6e26fc',
-			},
-			'& .MuiInput-underline:after': {
-				borderBottomColor: '#6e26fc',
-			},
-			'& .MuiOutlinedInput-root': {
-				'&.Mui-focused fieldset': {
-					borderColor: '#6e26fc',
-				},
-			},
-		},
-	})(TextField)
 
 	return (
 		<Wrapper>
