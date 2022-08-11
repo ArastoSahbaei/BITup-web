@@ -1,4 +1,4 @@
-import { Button, Input } from 'components/common'
+import { Button } from 'components/common'
 import { useState } from 'react'
 import { primaryColor } from 'shared/styles/GlobalStyles'
 import { useAuthentication } from 'hooks'
@@ -18,8 +18,8 @@ export const SignInForm = () => {
 		<Wrapper>
 			{/* <Image src={logotype} alt='' /> */}
 			<Title>Logga in</Title>
-			<Input label='Email' onChange={(event: any) => handleChange(event, 'email')} />
-			<Input label='Password' type='password' onChange={(event: any) => handleChange(event, 'password')} />
+			{/* 	<Input label='Email' onChange={(event: any) => handleChange(event, 'email')} />
+			<Input label='Password' type='password' onChange={(event: any) => handleChange(event, 'password')} /> */}
 			<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
 			<Button style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
 			<br />
