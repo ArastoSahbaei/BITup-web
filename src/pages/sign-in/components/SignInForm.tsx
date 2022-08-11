@@ -21,8 +21,8 @@ export const SignInForm = () => {
 			</Title>
 			<Input label='Email' onChange={(event: any) => handleChange(event, 'email')} />
 			<Input label='Password' type='password' onChange={(event: any) => handleChange(event, 'password')} />
-			<PasswordSpan>Glömt lösenord?</PasswordSpan>
-			<Button text={'Logga in'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
+			<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
+			<Button style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
 			<br />
 			<PolicySpan>Läs mer om hur Transbit handskas med din data i vår policy sektion.</PolicySpan>
 			<br />
@@ -31,7 +31,7 @@ export const SignInForm = () => {
 }
 
 const Wrapper = styled.div`
-	width: 500px;
+	width: 600px;
 	margin: 0 auto;
 	padding: 6%;
 	border: 3px solid ${primaryColor};
@@ -48,8 +48,11 @@ const Wrapper = styled.div`
 const Title = styled.span``
 
 const PasswordSpan = styled.span`
-	font-size: 0.5rem;
+	font-size: 0.8rem;
+	padding: 2%;
+	float: right;
+	cursor: pointer;
 `
 const PolicySpan = styled.span`
-	font-size: 0.5rem;
+	font-size: 0.6rem;
 `

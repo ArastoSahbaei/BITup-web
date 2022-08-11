@@ -2,22 +2,6 @@ import { withStyles } from '@material-ui/core/styles'
 import TextField from '@mui/material/TextField'
 import styled from 'styled-components'
 
-const InputField = withStyles({
-	root: {
-		'& label.Mui-focused': {
-			color: '#6e26fc',
-		},
-		'& .MuiInput-underline:after': {
-			borderBottomColor: '#6e26fc',
-		},
-		'& .MuiOutlinedInput-root': {
-			'&.Mui-focused fieldset': {
-				borderColor: '#6e26fc',
-			},
-		},
-	},
-})(TextField)
-
 interface Props {
 	label: string
 	onChange?: any
@@ -26,13 +10,30 @@ interface Props {
 }
 
 export const Input: React.FC<Props> = (props: Props) => {
-	const { label, type, error = false } = props
+	const { label, type, error = false, onChange } = props
+	const InputField = withStyles({
+		root: {
+			'& label.Mui-focused': {
+				color: '#6e26fc',
+			},
+			'& .MuiInput-underline:after': {
+				borderBottomColor: '#6e26fc',
+			},
+			'& .MuiOutlinedInput-root': {
+				'&.Mui-focused fieldset': {
+					borderColor: '#6e26fc',
+				},
+			},
+		},
+	})(TextField)
 
 	return (
 		<Wrapper>
-			<InputField onChange={props.onChange} type={type} error={error} id='outlined-basic' label={label} variant='outlined' fullWidth={true} />
+			<InputField id='outlined-basic' variant='outlined' onChange={onChange} type={type} error={error} label={label} fullWidth={true} />
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+	padding-top: 12px;
+`
