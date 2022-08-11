@@ -8,7 +8,7 @@ export const SignInPage: React.FC = () => {
 
 	return (
 		<Background>
-			<SignInForm />
+			{/* <SignInForm /> */}
 			<span>Dont have an account? Sign up and get started!</span>
 		</Background>
 	)
