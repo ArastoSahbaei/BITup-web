@@ -9,6 +9,7 @@ export interface IButton {
 	isLoading?: boolean
 	disabled?: boolean
 	upperCase?: boolean
+	type?: 'submit' | 'button'
 	style?: any
 }
 

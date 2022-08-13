@@ -15,29 +15,40 @@ export const SignInForm = () => {
 		setLoginCredentials({ ...loginCredentials, [target]: event.target.value })
 	}
 
+	const onSubmit = () => {
+		console.log('idk yet')
+	}
+
 	return (
 		<Formik
-			initialValues={{ firstName: '', lastName: '', email: '' }}
-			onSubmit={(values, { setSubmitting }) => {
+			initialValues={loginCredentials}
+			onSubmit={(values: any, { setSubmitting, resetForm }) => {
+				onSubmit()
 				alert(JSON.stringify(values, null, 2))
 				setSubmitting(false)
+				/* resetForm() */
 			}}>
-			<Form>
-				<label htmlFor='firstName'>First Name</label>
-				<Field name='firstName' type='text' />
-				<ErrorMessage name='firstName' />
-				<Wrapper>
-					{/* <Image src={logotype} alt='' /> */}
-					<Title>Logga in</Title>
-					<input onChange={(event) => handleChange(event, 'email')} placeholder='email' type='text' />
-					<input onChange={(event) => handleChange(event, 'password')} placeholder='password' type='password' />
-					<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
-					<Button style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
-					<br />
-					<PolicySpan>Läs mer om hur Transbit handskas med din data i vår policy sektion.</PolicySpan>
-					<br />
-				</Wrapper>
-			</Form>
+			{({ handleSubmit, handleChange, handleBlur, values, errors, touched }) => (
+				<Form>
+					<Wrapper>
+						<Image src={logotype} alt='' />
+						<Title>Logga in</Title>
+						{/* 	<input onChange={(event) => handleChange(event, 'email')} placeholder='email' type='text' />
+						<input onChange={(event) => handleChange(event, 'password')} placeholder='password' type='password' /> */}
+						<label htmlFor='email'>email</label>
+						<Field name='email' type='text' />
+						<ErrorMessage name='email' />
+						<label htmlFor='password'>password</label>
+						<Field name='password' type='text' />
+						<ErrorMessage name='password' />
+						<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
+						<Button type='submit' style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} onClick={() => login({ email: loginCredentials.email, password: loginCredentials.password })} />
+						<br />
+						<PolicySpan>Läs mer om hur Transbit handskas med din data i vår policy sektion.</PolicySpan>
+						<br />
+					</Wrapper>
+				</Form>
+			)}
 		</Formik>
 	)
 }
