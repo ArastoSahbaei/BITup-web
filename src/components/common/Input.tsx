@@ -1,45 +1,77 @@
-export const Input = () => {
-	return <div>Input</div>
-}
+import styled, { css } from 'styled-components'
+import { Field } from 'formik'
 
-/* import { withStyles } from '@material-ui/core/styles'
-import TextField from '@mui/material/TextField'
-import styled from 'styled-components'
+export const Input = styled(Field)`
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-style: normal;
+	font-weight: 400;
+	width: 100%;
+	margin-top: 0.5rem;
+	padding: 0.75rem 0.75rem;
 
-const InputField = withStyles({
-	root: {
-		'& label.Mui-focused': {
-			color: '#6e26fc',
-		},
-		'& .MuiInput-underline:after': {
-			borderBottomColor: '#6e26fc',
-		},
-		'& .MuiOutlinedInput-root': {
-			'&.Mui-focused fieldset': {
-				borderColor: '#6e26fc',
-			},
-		},
-	},
-})(TextField)
+	&:focus,
+	&:active {
+		box-shadow: rgb(210, 213, 217) 0px 0px 2px 1px, rgb(227, 230, 232) 0px 0px 0px 3px;
+		border: 1px solid rgb(26, 33, 43);
+		outline: none;
+	}
 
-interface Props {
-	label: string
-	onChange?: any
-	error?: boolean
-	type?: string
-}
+	/* Autocomplete styles in Chrome*/
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		background-color: white;
+		border: 1px solid lightgrey;
+		box-shadow: 0 0 0px 1000px #fff inset;
+		-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+		transition: background-color 5000s ease-in-out 0s;
+		-webkit-text-fill-color: black;
+	}
 
-export const Input: React.FC<Props> = (props: Props) => {
-	const { label, type, error = false, onChange } = props
+	${({ valid }) =>
+		valid &&
+		css`
+			border: 1px solid rgb(0, 156, 38);
 
-	return (
-		<Wrapper>
-			<InputField id='outlined-basic' variant='outlined' onChange={onChange} type={type} error={error} label={label} fullWidth={true} />
-		</Wrapper>
-	)
-}
+			&:focus,
+			&:active {
+				border: 1px solid rgb(0, 156, 38);
+				box-shadow: rgb(106, 237, 97) 0px 0px 2px 1px, rgb(177, 247, 160) 0px 0px 0px 3px;
+				outline: none;
+			}
 
-const Wrapper = styled.div`
-	padding-top: 12px;
+			/* Autocomplete styles in Chrome*/
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover,
+			&:-webkit-autofill:focus {
+				border: 1px solid rgb(0, 156, 38);
+			}
+		`}
+
+	${({ error }) =>
+		error &&
+		css`
+			border: 1px solid rgb(191, 49, 12);
+			outline: none;
+
+			&:focus,
+			&:active {
+				box-shadow: rgb(244, 129, 116) 0px 0px 2px 1px, rgb(251, 178, 174) 0px 0px 0px 3px;
+				border: 1px solid rgb(191, 49, 12);
+				outline: none;
+			}
+
+			/* Autocomplete styles in Chrome*/
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover,
+			&:-webkit-autofill:focus {
+				border: 1px solid rgb(191, 49, 12);
+			}
+		`}
 `
- */
+
+export const StyledInlineErrorMessage = styled.div
