@@ -36,7 +36,7 @@ export const SignInForm = () => {
 						<br />
 						<Input name='email' type='text' />
 						<ErrorMessage name='email' />
-						<Input name='password' type='text' />
+						<Input name='password' type='password' />
 						<ErrorMessage name='password' />
 						<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
 						<Button type='submit' style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} />
