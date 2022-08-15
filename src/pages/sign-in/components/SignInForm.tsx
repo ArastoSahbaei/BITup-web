@@ -5,6 +5,7 @@ import { IloginCredentials } from 'shared/interfaces'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import logotype from 'shared/images/png/logotype.png'
 import styled from 'styled-components'
+import { signInFormValidation } from 'shared/validations/SignInFormValidation'
 
 export const SignInForm = () => {
 	const { login } = useAuthentication()
@@ -21,11 +22,10 @@ export const SignInForm = () => {
 	return (
 		<Formik
 			initialValues={{ email: '', password: '' }}
+			validationSchema={signInFormValidation}
 			onSubmit={(values: any, { setSubmitting, resetForm }) => {
 				login(values)
-				alert(JSON.stringify(values, null, 2))
 				setSubmitting(false)
-				/* resetForm() */
 			}}>
 			{({ handleSubmit, handleChange, handleBlur, values, errors, touched }) => (
 				<Wrapper>
@@ -34,10 +34,8 @@ export const SignInForm = () => {
 						<br />
 						<Title>Logga in</Title>
 						<br />
-						<Input name='email' type='text' />
-						<ErrorMessage name='email' />
+						<Input name='email' />
 						<Input name='password' type='password' />
-						<ErrorMessage name='password' />
 						<PasswordSpan>Glömt lösenord?</PasswordSpan> <br />
 						<Button type='submit' style={{ width: '100%', marginTop: '20px' }} text={'Autentisera'} />
 						<br />
@@ -78,4 +76,12 @@ const PasswordSpan = styled.span`
 `
 const PolicySpan = styled.span`
 	font-size: 0.6rem;
+`
+
+const IDK = styled.span`
+	background-color: rgb(255, 245, 245);
+	color: rgb(120, 27, 0);
+	display: block;
+	margin-top: 0.5rem;
+	white-space: pre-line;
 `

@@ -1,7 +1,24 @@
 import styled, { css } from 'styled-components'
-import { Field } from 'formik'
+import { Field, ErrorMessage } from 'formik'
 
-export const Input = styled(Field)`
+interface Props {
+	name: string
+	type?: string
+}
+
+export const Input: React.FC<Props> = (props: Props) => {
+	const { name, type } = props
+	return (
+		<>
+			<InputStyle {...props} name={name} />
+			<InlineErrorStyle>
+				<ErrorMessage name={name} />
+			</InlineErrorStyle>
+		</>
+	)
+}
+
+export const InputStyle = styled(Field)`
 	background-color: white;
 	border: 1px solid lightgrey;
 	border-radius: 4px;
@@ -74,4 +91,10 @@ export const Input = styled(Field)`
 		`}
 `
 
-export const StyledInlineErrorMessage = styled.div
+export const InlineErrorStyle = styled.div`
+	background-color: rgb(255, 245, 245);
+	color: rgb(120, 27, 0);
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	white-space: pre-line;
+`
