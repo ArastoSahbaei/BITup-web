@@ -1,6 +1,6 @@
 export const SuccessfulTradePage: React.FC = () => {
 	// ✅❌
-	//TODO: ❌ - 1. You get re-direct here after a successful trade. You need to get the trade InvoiceID from the URL.
+	//TODO: ❌ - 1. You get re-direct here after a successful trade. You need to get the trade InvoiceID from the URI params.
 	//TODO: ❌ - 2. You need to verify that the InvoiceID is true (so people dont mock fake trades).
 	//TODO: ❌ - 3. If the invoiceID is true and does not have a previous sell-order on binance then go to step 5.
 	//TODO: ❌ - 4. if the invoiceID is false - what to do?
