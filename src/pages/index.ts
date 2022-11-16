@@ -1,5 +1,6 @@
 export { SignInPage } from './sign-in/SignInPage'
 export { LandingPage } from './landing/LandingPage'
-export { GettingStartedPage } from './getting-started/GettingStartedPage'
 export { ResetPasswordPage } from './reset-password/ResetPasswordPage'
+export { GettingStartedPage } from './getting-started/GettingStartedPage'
+export { SuccessfulTradePage } from './successful-trade/SuccessfulTradePage'
 export { ValidateUserEmailPage } from './validate-email/ValidateUserEmailPage'

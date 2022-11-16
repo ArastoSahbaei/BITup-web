@@ -3,6 +3,7 @@ const landingPage = '/home'
 const resetPasswordPage = '/reset/:token'
 const gettingStartedPage = '/kom-i-kontakt'
 const validateUserEmailPage = '/validate/:token'
+const successfulTradePage = '/trade-successful'
 
 const auth = {
 	profilePage: '/profil',
@@ -21,6 +22,7 @@ export default {
 	resetPasswordPage,
 	gettingStartedPage,
 	validateUserEmailPage,
+	successfulTradePage,
 	auth,
 	admin
 }

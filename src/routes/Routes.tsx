@@ -6,7 +6,7 @@ import { nonAuthenticatedUser } from 'shared/mock'
 import { useContext, useEffect } from 'react'
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 import { HistoryPage, ProfilePage, InitializePaymentPage, OnBoardingPage } from 'pages/auth'
-import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, ValidateUserEmailPage } from 'pages'
+import { GettingStartedPage, LandingPage, ResetPasswordPage, SignInPage, SuccessfulTradePage, ValidateUserEmailPage } from 'pages'
 import BitupService from 'shared/api/services/BitupService'
 import Path from './Path'
 
@@ -59,6 +59,7 @@ export const Routes = (props: { children: JSX.Element }) => {
 				<Route path={Path.landingPage} element={<LandingPage />} />
 				<Route path={Path.resetPasswordPage} element={<ResetPasswordPage />} />
 				<Route path={Path.gettingStartedPage} element={<GettingStartedPage />} />
+				<Route path={Path.successfulTradePage} element={<SuccessfulTradePage />} />
 				<Route path={Path.validateUserEmailPage} element={<ValidateUserEmailPage />} />
 				{/* AUTHENTICATED ROUTES */}
 				<Route path={Path.auth.profilePage} element={authRequired(<ProfilePage />)} />
