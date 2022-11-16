@@ -6,7 +6,7 @@ export const SuccessfulTradePage: React.FC = () => {
 	//TODO: ❌ - 4. if the invoiceID is false - what to do?
 	//TODO: ❌ - 5. Call the backend API that calls the Binance API - create a BTC-(USD?) sell order on binance with the amount of the trade.
 	//TODO: ❌ - 6. If the sell order is successful Re-direct back to page that offers receipt.
-	//TODO: ❌ - 7. If the sell order is declined - handle it in some way.
+	//TODO: ❌ - 7. If the sell order is declined - handle it in some way - possibly repeat the process X(3?) times.
 
 	return (
 		<div>
