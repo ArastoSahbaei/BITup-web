@@ -1,4 +1,19 @@
+import { useEffect } from 'react'
+
 export const SuccessfulTradePage: React.FC = () => {
+	const x = async () => {
+		try {
+			//CALL BACKEND TO TRIGGER A SELL-ORDER TRANSACTION
+			console.log('hello')
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	useEffect(() => {
+		x()
+	}, [])
+
 	return (
 		<div>
 			<h1>TRADE WAS SUCESSFULL WOOOW</h1>
@@ -9,7 +24,7 @@ export const SuccessfulTradePage: React.FC = () => {
 // ✅❌
 //TODO: ❌ - 1. You get re-direct here after a successful trade. You need to get the trade InvoiceID from the URI params.
 
-//TODO: ❌ - 2. You need to verify that the InvoiceID is true (so people dont mock fake trades).
+//TODO: ❌ - 2. You need to verify that the InvoiceID is true (so people dont mock fake trades) <backend solves this>.
 
 //TODO: ❌ - 3. If the invoiceID is true and does not have a previous sell-order on binance then go to step 5.
 
