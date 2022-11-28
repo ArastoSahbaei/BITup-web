@@ -31,5 +31,6 @@
     DEV_WEB_URL = <string> EXAMPLE: http://localhost:3000
 ```
 **3. Insomnia**
+  Import the file found in `/insomnia/*` and it should provide you with access to all the API calls
 
 # SETTING UP MOBILE(REACT NATIVE)
